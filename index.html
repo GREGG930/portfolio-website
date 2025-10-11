@@ -235,8 +235,8 @@
     max-width: 700px;
     margin: auto;
     display: block;
-    overflow: visible;
-    white-space: nowrap;
+    overflow-x: hidden;
+    white-space: normal;
 }
 @media (min-width: 768px) {
     h1, .text-4xl {
@@ -320,7 +320,7 @@
         <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between">
             <div class="md:w-1/2 mb-12 md:mb-0">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                    <span id="live-typing" style="white-space:pre;"></span>
+                    <span id="live-typing" style="white-space: pre-wrap;"></span>
                     <span class="gradient-text" id="live-typing-highlight"></span>
                 </h1>
                 <h2 class="text-2xl md:text-3xl text-blue-400 mb-6">Web Developer and IT Support Personnel</h2>
