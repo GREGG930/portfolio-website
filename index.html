@@ -236,7 +236,7 @@
     margin: auto;
     display: block;
     overflow-x: hidden;
-    white-space: normal;
+    white-space: pre-wrap;
 }
 @media (min-width: 768px) {
     h1, .text-4xl {
@@ -825,22 +825,16 @@
                         <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mr-4">
+                                <button onclick="window.open('https://github.com/GREGG930', '_blank')" class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mr-4 focus:outline-none">
                                     <i class="fab fa-github text-white text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">GitHub</h4>
-                                    <a href="https://github.com/GREGG930" target="_blank" class="text-blue-400 hover:underline">github.com/GREGG930</a>
-                                </div>
+                                </button>
+                                <!-- Masked: GitHub info hidden -->
                             </div>
                             <div class="flex items-start">
-                                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mr-4">
+                                <button onclick="window.open('https://wa.me/260976532430', '_blank')" class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mr-4 focus:outline-none">
                                     <i class="fab fa-whatsapp text-white text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">WhatsApp</h4>
-                                    <a href="https://wa.me/260976532430" target="_blank" class="text-blue-400 hover:underline">+260 976 532 430</a>
-                                </div>
+                                </button>
+                                <!-- Masked: WhatsApp info hidden -->
                             </div>
                         </div>
                         <div class="mt-12">
