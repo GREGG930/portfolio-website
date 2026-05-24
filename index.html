@@ -271,6 +271,27 @@
             overflow-x: hidden; /* Hide horizontal scrollbar */
         }
 
+        /* Certification badge styles */
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 9999px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+        .cert-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59,130,246,0.12);
+        }
+        .cert-badge img {
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+        }
+
     </style>
 </head>
 <body class="min-h-screen transition-colors duration-500 bg-gray-900 text-white" id="body">
@@ -580,7 +601,10 @@
             <div class="flex justify-center items-center gap-6 mb-6 text-4xl text-white">
                 <i class="fab fa-aws" title="AWS"></i>
                 <img src="https://cdn.simpleicons.org/cisco/ffffff" alt="Cisco" title="Cisco" class="w-10 h-10" />
-                <i class="fab fa-microsoft" title="Microsoft"></i>
+                <a href="https://learn.microsoft.com/en-us/certifications/" target="_blank" rel="noopener noreferrer" class="cert-badge" title="Microsoft Certifications">
+                    <img src="https://cdn.simpleicons.org/microsoft/ffffff" alt="Microsoft" />
+                    <span class="text-sm text-white">Microsoft</span>
+                </a>
                 <img src="https://cdn.simpleicons.org/comptia/ffffff" alt="CompTIA" title="CompTIA" class="w-10 h-10" />
                 <img src="https://cdn.simpleicons.org/axelos/ffffff" alt="AXELOS" title="AXELOS" class="w-10 h-10" />
             </div>
@@ -592,6 +616,7 @@
                             <li>ITIL (Information Technology Infrastructure Library) – AXELOS</li>
                             <li>CompTIA A+ – Networking Fundamentals</li>
                             <li>AWS Certified Cloud Practitioner (CLF-C02)</li>
+                            <li>IT Support — <a href="https://learn.microsoft.com/en-us/certifications/" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:underline">Microsoft (Microsoft Learn)</a></li>
                         </ul>
                     </div>
                     <div class="card p-6 rounded-xl">
@@ -631,9 +656,7 @@
                         <h3 class="text-xl font-bold">School Website</h3>
                     </div>
                     <img src="IMG_20230611_120525_201.jpg" alt="School Website" class="rounded-lg mb-4">
-                    <p class="text-gray-300 mb-3">
-                        A modern, responsive school website with a clean UI.
-                    </p>
+                    <p class="text-gray-300 mb-3">Modern, responsive school website with a clean UI.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Outdated school website with poor mobile support.<br>
                         <strong>Solution:</strong> Redesigned and rebuilt a responsive site with modern UI and accessibility improvements.<br>
@@ -650,9 +673,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Subscription Reminder App</h3>
                     </div>
-                    <p class="text-gray-300 mb-3">
-                        Built a utility app to help users track and get reminders for subscriptions, featuring calendar integration and notifications.
-                    </p>
+                    <p class="text-gray-300 mb-3">Utility app to track subscriptions with calendar reminders and notifications.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Users missing recurring payments and renewals.<br>
                         <strong>Solution:</strong> Implemented reminder workflows with calendar integration and notifications.
@@ -668,9 +689,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Productivity Tools</h3>
                     </div>
-                    <p class="text-gray-300 mb-3">
-                        Created a suite of personal productivity tools, including to-do lists and note-taking apps, with clean and efficient code.
-                    </p>
+                    <p class="text-gray-300 mb-3">Suite of lightweight productivity tools (to-do lists, notes) focused on usability.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Lack of simple, local productivity tools.
                         <br><strong>Solution:</strong> Built lightweight web apps focused on usability and performance.
@@ -686,9 +705,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Database Management System</h3>
                     </div>
-                    <p class="text-gray-300 mb-3">
-                        Designed and implemented a database management system for academic assignments, focusing on data integrity and usability.
-                    </p>
+                    <p class="text-gray-300 mb-3">Database system for managing academic assignments with integrity and easy reporting.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Manual tracking of submissions and inconsistent data.
                         <br><strong>Solution:</strong> Implemented a DB-backed system with structured schemas and interfaces.
@@ -704,9 +721,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Web Scientific Calculator <br></h3>
                     </div>
-                    <p class="text-gray-300 mb-3">
-                        A modern web-based scientific calculator with advanced functions and a clean UI. Built for accessibility and ease of use.
-                    </p>
+                    <p class="text-gray-300 mb-3">Web-based scientific calculator with advanced functions and accessibility features.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Need for an accessible, browser-based scientific calculator.
                         <br><strong>Solution:</strong> Built a responsive calculator with accessibility considerations and thorough testing.
@@ -722,9 +737,7 @@
                         </div>
                         <h3 class="text-xl font-bold">GREGG MASTER</h3>
                     </div>
-                    <p class="text-gray-300 mb-3">
-                        A project called GREGG MASTER.
-                    </p>
+                    <p class="text-gray-300 mb-3">Feature demo project showcasing utilities and developer workflows.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Example project to showcase utilities and workflows.
                         <br><strong>Solution:</strong> Built feature demos and documentation for reuse.
@@ -740,9 +753,7 @@
                         </div>
                         <h3 class="text-xl font-bold">INTELLINK AFRICA Website</h3>
                     </div>
-                    <p class="text-gray-300 mb-3">
-                        I built the INTELLINK AFRICA website, focusing on modern design and seamless user experience.
-                    </p>
+                    <p class="text-gray-300 mb-3">Company website redesign delivering a responsive, branded user experience.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Company site lacked clarity and responsiveness.
                         <br><strong>Solution:</strong> Delivered a responsive, branded site with clear service pages.
@@ -758,16 +769,49 @@
                         </div>
                         <h3 class="text-xl font-bold">GREGG FITECH</h3>
                     </div>
-                    <p class="text-gray-300 mb-3">
-                        Empowering Zambia with Tech Knowledge<br>
-                        Whether you're an IT pro or just starting out, I've got your back.
-                    </p>
+                    <p class="text-gray-300 mb-3">Educational platform and resources to improve local tech literacy and skills.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Lack of accessible local tech resources.
                         <br><strong>Solution:</strong> Built educational resources and showcase projects.
                         <br><strong>Tools used:</strong> HTML, CSS, JavaScript
                     </div>
                     <a href="https://gregg930.github.io/GREGGFITECH" target="_blank" class="text-blue-400 hover:underline font-medium mt-auto">View Project</a>
+                </div>
+
+                <!-- Project 9: HR Management System -->
+                <div class="card p-8 rounded-xl flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-users-cog text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">HR Management System</h3>
+                    </div>
+                    <p class="text-gray-300 mb-3">
+                        A human resources management system for handling employee records, leave, and payroll workflows.
+                    </p>
+                    <div class="text-sm text-gray-300 mb-3">
+                        <strong>Problem:</strong> Manual HR processes leading to errors and slow reporting.
+                        <br><strong>Solution:</strong> Built an HRMS to centralize employee data and automate common HR tasks.
+                        <br><strong>Tools used:</strong> HTML, CSS, JavaScript
+                    </div>
+                    <a href="https://gregg930.github.io/SAMPLE/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline font-medium mt-auto">View Project</a>
+                </div>
+
+                <!-- Project 10: Database ERP — DSK Credit Solutions -->
+                <div class="card p-8 rounded-xl flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-rose-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-building text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Database ERP — DSK Credit Solutions</h3>
+                    </div>
+                    <p class="text-gray-300 mb-3">ERP for loan management automating applications, approvals, repayments, and reporting.</p>
+                    <div class="text-sm text-gray-300 mb-3">
+                        <strong>Problem:</strong> Manual loan tracking and slow processing.<br>
+                        <strong>Solution:</strong> Centralized loan workflows with dashboards and reporting.<br>
+                        <strong>Tools used:</strong> SQL, PHP/JavaScript
+                    </div>
+                    <a href="#" class="text-blue-400 hover:underline font-medium mt-auto">View Project</a>
                 </div>
 
             </div>
