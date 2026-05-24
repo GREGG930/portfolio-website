@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grenger Muwowo | Web Developer and IT Support Personnel</title>
+    <title>Grenger Muwowo | IT Support & Web Developer – Lusaka, Zambia</title>
+    <meta property="og:title" content="Grenger Muwowo | IT Support & Web Developer – Lusaka, Zambia">
+    <meta property="og:description" content="BSc Computer Science graduate offering IT support, web development, and cloud solutions in Lusaka, Zambia.">
+    <meta property="og:image" content="IMG_20230611_120525_201.jpg">
+    <meta property="og:url" content="https://gregg930.github.io/portfolio-website/">
+    <meta property="og:type" content="website">
+    <meta name="description" content="BSc Computer Science graduate offering IT support, web development, and cloud solutions in Lusaka, Zambia.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230f172a'/%3E%3Ctext%20x='50'%20y='62'%20font-family='Poppins%2C%20Arial%2C%20sans-serif'%20font-weight='700'%20font-size='50'%20fill='%23ffffff'%20text-anchor='middle'%3EGM%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cdefs%3E%3ClinearGradient%20id='gmGrad'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3E%3Cstop%20offset='0%25'%20style='stop-color:%2300D4AA;stop-opacity:1'%20/%3E%3Cstop%20offset='100%25'%20style='stop-color:%2300A88A;stop-opacity:1'%20/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='100'%20height='100'%20fill='%230f172a'/%3E%3Ctext%20x='50'%20y='62'%20font-family='Poppins%2C%20Arial%2C%20sans-serif'%20font-weight='700'%20font-size='50'%20fill='url(%23gmGrad)'%20text-anchor='middle'%3EGM%3C/text%3E%3C/svg%3E">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -17,8 +24,15 @@
             scroll-behavior: smooth;
         }
         
+        :root {
+            --accent-teal: #00D4AA;
+            --accent-teal-dark: #00A88A;
+            --accent-teal-light: #4DEDCA;
+            --dark-navy: #0f172a;
+        }
+
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-teal-light));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -47,7 +61,7 @@
             height: 2px;
             bottom: -2px;
             left: 0;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            background: var(--accent-teal);
             transition: width 0.3s ease;
         }
         
@@ -64,7 +78,7 @@
         
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-teal-light));
             border-radius: 4px;
             transition: width 1.5s ease;
         }
@@ -84,9 +98,14 @@
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 212, 170, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0); }
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 170, 0.2);
         }
         
         .section {
@@ -114,7 +133,7 @@
             top: 0;
             height: 100%;
             width: 2px;
-            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            background: linear-gradient(to bottom, var(--accent-teal), var(--accent-teal-light));
         }
         
         .timeline-dot {
@@ -124,7 +143,7 @@
             width: 1.5rem;
             height: 1.5rem;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-teal-light));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -292,7 +311,254 @@
             display: inline-block;
         }
 
-    </style>
+        /* Typing animation for hero */
+        .typing-word {
+            display: inline;
+            min-height: 1.2em;
+            color: var(--accent-teal);
+            font-weight: 700;
+        }
+
+        @keyframes type {
+            0%, 10% { opacity: 1; }
+            90%, 100% { opacity: 0; }
+        }
+
+        @keyframes blink-cursor {
+            50% { border-right: 2px solid var(--accent-teal); }
+        }
+
+        .typing-container {
+            display: inline;
+            position: relative;
+        }
+
+        .typing-container::after {
+            content: '';
+            position: absolute;
+            border-right: 2px solid var(--accent-teal);
+            animation: blink-cursor 0.7s infinite;
+        }
+
+        /* Hero section gradient background */
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 170, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #home {
+            position: relative;
+        }
+
+        #home > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glowing border for profile photo */
+        .hero-img-container {
+            box-shadow: 0 0 40px rgba(0, 212, 170, 0.3);
+        }
+
+        .hero-img-container .border-blue-400 {
+            border-color: var(--accent-teal) !important;
+        }
+
+        /* Featured badge */
+        .featured-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            z-index: 10;
+        }
+
+        /* Project card hover overlay */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .overlay-button {
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-teal);
+            color: #000;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .overlay-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 212, 170, 0.4);
+        }
+
+        /* Gradient thumbnails */
+        .gradient-placeholder {
+            width: 100%;
+            height: 200px;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .gradient-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .gradient-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .gradient-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .gradient-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .gradient-7 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .gradient-8 { background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); }
+        .gradient-9 { background: linear-gradient(135deg, #2e2e78 0%, #662d8c 100%); }
+        .gradient-10 { background: linear-gradient(135deg, #eb3b5a 0%, #fc5c65 100%); }
+
+        /* Skill cards */
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 212, 170, 0.1);
+            border-color: var(--accent-teal);
+            box-shadow: 0 12px 30px rgba(0, 212, 170, 0.25);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent-teal);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px rgba(0, 212, 170, 0.5));
+        }
+
+        /* Certification cards */
+        .cert-card {
+            position: relative;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-teal);
+            padding: 1.5rem;
+            padding-left: 1.5rem;
+            background: rgba(0, 212, 170, 0.05);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            background: rgba(0, 212, 170, 0.1);
+            transform: translateX(5px);
+        }
+
+        .cert-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: var(--accent-teal);
+        }
+
+        /* Stats section */
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            padding: 1rem;
+            background: rgba(0, 212, 170, 0.2);
+            border: 1px solid var(--accent-teal);
+            border-radius: 0.5rem;
+            color: var(--accent-teal);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }</style>
 </head>
 <body class="min-h-screen transition-colors duration-500 bg-gray-900 text-white" id="body">
     <!-- Dark/Light Mode Toggle Button -->
@@ -326,20 +592,25 @@
     <section id="home" class="min-h-screen flex items-center pt-20 section">
         <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between">
             <div class="w-full md:w-1/2 mb-12 md:mb-0 flex flex-col justify-center text-left">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-left typing-h1" style="text-align:left;">IT Assistant | IT Support Technician | BSc Computer Science</h1>
-                <h2 class="text-2xl md:text-3xl text-blue-400 mb-4 text-left">AWS Cloud • Microsoft 365 • Cybersecurity • Networking • AI • Web Development</h2>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-left typing-h1" style="text-align:left;">I fix IT problems, build websites, and keep systems running — so you don't have to.</h1>
+                <div class="text-2xl md:text-3xl mb-4 text-left h-12 md:h-16">
+                    <span class="typing-container">
+                        <span class="typing-word" id="typing-text">IT Support Technician</span>
+                    </span>
+                </div>
+                <p class="text-lg text-gray-300 mb-2 text-left">Providing reliable IT support & web solutions across Lusaka and Zambia.</p>
                 <p class="text-lg text-gray-300 mb-8 max-w-lg text-left">BSc Computer Science graduate with hands-on IT support experience and industry certifications from AWS, Cisco, and IBM. I provide reliable technical support, cloud fundamentals, system troubleshooting, and digital solutions.</p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-start">
-                    <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium hover:opacity-90 transition-all transform hover:scale-105">Contact Me for IT Support or Opportunities</a>
-                    <a href="Grenger_Muwowo_CV.pdf" download class="px-6 py-3 border border-blue-400 text-blue-400 rounded-full font-medium hover:bg-blue-400 hover:text-white transition-all transform hover:scale-105">Download CV</a>
-                    <a href="#about" class="px-6 py-3 border border-blue-400 text-blue-400 rounded-full font-medium hover:bg-blue-400 hover:text-white transition-all transform hover:scale-105">Learn More</a>
+                    <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full font-medium hover:opacity-90 transition-all transform hover:scale-105" style="background: linear-gradient(135deg, var(--accent-teal), var(--accent-teal-light));">Contact Me for IT Support or Opportunities</a>
+                    <a href="Grenger_Muwowo_CV.pdf" download class="px-6 py-3 border-2 rounded-full font-medium hover:opacity-90 transition-all transform hover:scale-105" style="border-color: var(--accent-teal); color: var(--accent-teal);">Download CV</a>
+                    <a href="#about" class="px-6 py-3 border-2 rounded-full font-medium hover:opacity-90 transition-all transform hover:scale-105" style="border-color: var(--accent-teal); color: var(--accent-teal);">Learn More</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <div class="relative hero-img-container">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-xl"></div>
+                <div class="relative hero-img-container" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full opacity-20 blur-xl" style="background: linear-gradient(135deg, var(--accent-teal), var(--accent-teal-light));"></div>
                     <div class="relative w-full h-full flex items-center justify-center">
-                        <div class="w-full h-full rounded-full overflow-hidden border-4 border-blue-400 floating">
+                        <div class="w-full h-full rounded-full overflow-hidden border-4 floating" style="border-color: var(--accent-teal);">
                             <!-- Hero Section image -->
                             <img src="IMG_20230611_120525_201.jpg" alt="Grenger Muwowo" class="w-full h-full object-cover">
                         </div>
@@ -350,12 +621,12 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-900 section">
+    <section id="about" class="py-20 bg-gray-900 section" data-aos="fade-up">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">About Me</h2>
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-blue-400">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center" data-aos="zoom-in">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 flex items-center justify-center" style="border-color: var(--accent-teal); box-shadow: 0 0 30px rgba(0, 212, 170, 0.3);">
                         <!-- About Section image -->
                         <img src="IMG_20230611_120525_201.jpg" alt="Grenger Muwowo" class="w-full h-full object-cover">
                     </div>
@@ -369,15 +640,15 @@
                         I hold industry-recognized certifications from AWS, Cisco, and IBM, and I am passionate about delivering reliable IT support, system troubleshooting, and secure digital solutions for individuals and organizations.
                     </p>
                     <div class="flex flex-wrap gap-3 mb-6 justify-center md:justify-start">
-                        <span class="px-3 py-1 bg-blue-800 text-sm rounded-full">BSc Computer Science</span>
-                        <span class="px-3 py-1 bg-blue-800 text-sm rounded-full">AWS Certified Cloud Practitioner (Pretest)</span>
-                        <span class="px-3 py-1 bg-blue-800 text-sm rounded-full">Cisco AI & Cybersecurity</span>
-                        <span class="px-3 py-1 bg-blue-800 text-sm rounded-full">Microsoft 365 Training</span>
+                        <span class="px-3 py-1 text-sm rounded-full" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">BSc Computer Science</span>
+                        <span class="px-3 py-1 text-sm rounded-full" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">AWS Certified Cloud Practitioner (Pretest)</span>
+                        <span class="px-3 py-1 text-sm rounded-full" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">Cisco AI & Cybersecurity</span>
+                        <span class="px-3 py-1 text-sm rounded-full" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">Microsoft 365 Training</span>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                         <div class="flex items-center">
-                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
-                                <i class="fas fa-user text-white"></i>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background: rgba(0, 212, 170, 0.2);">
+                                <i class="fas fa-user" style="color: var(--accent-teal);"></i>
                             </div>
                             <div>
                                 <p class="text-gray-400">Name</p>
@@ -385,8 +656,8 @@
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-white"></i>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background: rgba(0, 212, 170, 0.2);">
+                                <i class="fas fa-map-marker-alt" style="color: var(--accent-teal);"></i>
                             </div>
                             <div>
                                 <p class="text-gray-400">Location</p>
@@ -394,8 +665,8 @@
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-white"></i>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background: rgba(0, 212, 170, 0.2);">
+                                <i class="fas fa-envelope" style="color: var(--accent-teal);"></i>
                             </div>
                             <div>
                                 <p class="text-gray-400">Email</p>
@@ -403,8 +674,8 @@
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-white"></i>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background: rgba(0, 212, 170, 0.2);">
+                                <i class="fas fa-phone" style="color: var(--accent-teal);"></i>
                             </div>
                             <div>
                                 <p class="text-gray-400">Phone</p>
@@ -418,17 +689,17 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 section">
+    <section id="experience" class="py-20 section" data-aos="fade-up">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">Professional Experience</h2>
             <div class="max-w-3xl mx-auto">
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-right">
                     <div class="timeline-dot">
                         <i class="fas fa-tools text-white text-xs"></i>
                     </div>
                     <div class="card p-6 rounded-xl">
                         <h3 class="text-xl font-bold mb-2">IT Support & Digital Services – Freelance</h3>
-                        <p class="text-blue-400 mb-4">Freelance</p>
+                        <p class="font-medium mb-4" style="color: var(--accent-teal);">Freelance</p>
                         <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Provided IT support and troubleshooting for individuals and small businesses</li>
                             <li>Assisted users with Microsoft 365 tools and OneDrive collaboration</li>
@@ -437,13 +708,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
                     <div class="timeline-dot">
                         <i class="fas fa-code text-white text-xs"></i>
                     </div>
                     <div class="card p-6 rounded-xl">
                         <h3 class="text-xl font-bold mb-2">Web Developer</h3>
-                        <p class="text-blue-400 mb-4">City University of Science & Technology</p>
+                        <p class="font-medium mb-4" style="color: var(--accent-teal);">City University of Science & Technology</p>
                         <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Developed and maintained the university website with modern UI/UX principles</li>
                             <li>Implemented responsive design for optimal viewing across devices</li>
@@ -451,13 +722,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
                     <div class="timeline-dot">
                         <i class="fas fa-desktop text-white text-xs"></i>
                     </div>
                     <div class="card p-6 rounded-xl">
                         <h3 class="text-xl font-bold mb-2">IT Personnel</h3>
-                        <p class="text-blue-400 mb-4">Technical Support Role</p>
+                        <p class="font-medium mb-4" style="color: var(--accent-teal);">Technical Support Role</p>
                         <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Provided comprehensive IT support to staff and students</li>
                             <li>Performed system maintenance and troubleshooting</li>
@@ -465,13 +736,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
                     <div class="timeline-dot">
                         <i class="fas fa-mobile-alt text-white text-xs"></i>
                     </div>
                     <div class="card p-6 rounded-xl">
                         <h3 class="text-xl font-bold mb-2">App Developer</h3>
-                        <p class="text-blue-400 mb-4">Personal Projects</p>
+                        <p class="font-medium mb-4" style="color: var(--accent-teal);">Personal Projects</p>
                         <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Built utility applications including subscription reminder with calendar integration</li>
                             <li>Developed personal productivity tools</li>
@@ -479,13 +750,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
                     <div class="timeline-dot">
                         <i class="fas fa-hashtag text-white text-xs"></i>
                     </div>
                     <div class="card p-6 rounded-xl">
                         <h3 class="text-xl font-bold mb-2">Social Media Manager</h3>
-                        <p class="text-blue-400 mb-4">Digital Marketing</p>
+                        <p class="font-medium mb-4" style="color: var(--accent-teal);">Digital Marketing</p>
                         <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Developed and executed social media strategies</li>
                             <li>Created engaging content and managed branding</li>
@@ -497,12 +768,38 @@
         </div>
     </section>
 
+    <!-- Social Proof Section -->
+    <section id="social-proof" class="py-20 bg-gray-900 section" data-aos="fade-up">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Clients Helped</div>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Hours of IT Support</div>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Live Websites Deployed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-900 section">
+    <section id="services" class="py-20 bg-gray-900 section" data-aos="fade-up">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">IT Support Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="card p-6 rounded-xl">
+                <div class="card p-6 rounded-xl" data-aos="zoom-in">
                     <h3 class="text-xl font-bold mb-3">IT support & troubleshooting</h3>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
                         <li>On-site & remote IT support</li>
@@ -510,7 +807,7 @@
                         <li>Microsoft 365 setup & support</li>
                     </ul>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="card p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="100">
                     <h3 class="text-xl font-bold mb-3">Systems & Networking</h3>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
                         <li>LAN & Wi‑Fi configuration</li>
@@ -518,7 +815,7 @@
                         <li>Backup & data protection</li>
                     </ul>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="card p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="200">
                     <h3 class="text-xl font-bold mb-3">Digital & Web Services</h3>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
                         <li>Website development & maintenance</li>
@@ -526,7 +823,7 @@
                         <li>Social Media Management</li>
                     </ul>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="card p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="300">
                     <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
                         <li>Content planning & scheduling</li>
@@ -534,7 +831,7 @@
                         <li>Performance tracking and analytics</li>
                     </ul>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="card p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="400">
                     <h3 class="text-xl font-bold mb-3">Training & Support</h3>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
                         <li>Computer lessons & digital literacy</li>
@@ -546,96 +843,139 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 section">
+    <section id="skills" class="py-20 section" data-aos="fade-up">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-desktop text-blue-400 mr-3"></i>IT Support & Systems</h3>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>Hardware & software troubleshooting</li>
-                        <li>Windows installation & activation</li>
-                        <li>System optimization & maintenance</li>
-                        <li>User setup & support</li>
-                    </ul>
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center">Web Development</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        <div class="skill-card" data-aos="fade-up">
+                            <i class="fab fa-html5 skill-icon"></i>
+                            <p class="font-medium text-sm">HTML</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
+                            <i class="fab fa-css3-alt skill-icon"></i>
+                            <p class="font-medium text-sm">CSS</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fab fa-js skill-icon"></i>
+                            <p class="font-medium text-sm">JavaScript</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
+                            <i class="fab fa-react skill-icon"></i>
+                            <p class="font-medium text-sm">React</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-wind skill-icon"></i>
+                            <p class="font-medium text-sm">Tailwind</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold mb-4"><i class="fab fa-microsoft text-blue-400 mr-3"></i>Microsoft 365 & Productivity</h3>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>Outlook, Word, Excel, PowerPoint</li>
-                        <li>OneDrive & cloud collaboration</li>
-                        <li>Microsoft 365 admin basics</li>
-                    </ul>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center">Cloud & Infrastructure</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        <div class="skill-card" data-aos="fade-up">
+                            <i class="fab fa-aws skill-icon"></i>
+                            <p class="font-medium text-sm">AWS</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
+                            <i class="fas fa-network-wired skill-icon"></i>
+                            <p class="font-medium text-sm">Networking</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fab fa-windows skill-icon"></i>
+                            <p class="font-medium text-sm">Windows</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
+                            <i class="fab fa-microsoft skill-icon"></i>
+                            <p class="font-medium text-sm">Microsoft 365</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-shield-alt skill-icon"></i>
+                            <p class="font-medium text-sm">Cybersecurity</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-network-wired text-blue-400 mr-3"></i>Networking & Security</h3>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>LAN & Wi‑Fi troubleshooting</li>
-                        <li>Antivirus & endpoint security</li>
-                        <li>Cybersecurity awareness & backups</li>
-                    </ul>
-                </div>
-                <div class="card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-cloud text-blue-400 mr-3"></i>Cloud & AI</h3>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>AWS Cloud fundamentals</li>
-                        <li>AI fundamentals & prompt engineering</li>
-                    </ul>
-                </div>
-                <div class="card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-code text-blue-400 mr-3"></i>Web & Digital</h3>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>HTML, CSS, JavaScript, React, Tailwind</li>
-                        <li>Website development & maintenance</li>
-                        <li>Banner, flyer & logo design</li>
-                    </ul>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center">IT Support & Systems</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div class="skill-card" data-aos="fade-up">
+                            <i class="fas fa-tools skill-icon"></i>
+                            <p class="font-medium text-sm">Hardware Support</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
+                            <i class="fas fa-cogs skill-icon"></i>
+                            <p class="font-medium text-sm">System Admin</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-lock skill-icon"></i>
+                            <p class="font-medium text-sm">Security</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
+                            <i class="fas fa-database skill-icon"></i>
+                            <p class="font-medium text-sm">Databases</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-20 section">
+    <section id="certifications" class="py-20 bg-gray-900 section" data-aos="fade-up">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 gradient-text">Certifications & Professional Training</h2>
-            <div class="flex justify-center items-center gap-6 mb-6 text-4xl text-white">
-                <i class="fab fa-aws" title="AWS"></i>
-                <img src="https://cdn.simpleicons.org/cisco/ffffff" alt="Cisco" title="Cisco" class="w-10 h-10" />
-                <a href="https://learn.microsoft.com/en-us/certifications/" target="_blank" rel="noopener noreferrer" class="cert-badge" title="Microsoft Certifications">
-                    <img src="https://cdn.simpleicons.org/microsoft/ffffff" alt="Microsoft" />
-                    <span class="text-sm text-white">Microsoft</span>
-                </a>
-                <img src="https://cdn.simpleicons.org/comptia/ffffff" alt="CompTIA" title="CompTIA" class="w-10 h-10" />
-                <img src="https://cdn.simpleicons.org/axelos/ffffff" alt="AXELOS" title="AXELOS" class="w-10 h-10" />
-            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">Certifications & Professional Training</h2>
             <div class="max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4">Core Certifications</h3>
-                        <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                            <li>ITIL (Information Technology Infrastructure Library) – AXELOS</li>
-                            <li>CompTIA A+ – Networking Fundamentals</li>
-                            <li>AWS Certified Cloud Practitioner (CLF-C02)</li>
-                            <li>IT Support — <a href="https://learn.microsoft.com/en-us/certifications/" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:underline">Microsoft (Microsoft Learn)</a></li>
-                        </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <!-- Core Certifications -->
+                    <div class="cert-card" data-aos="fade-right">
+                        <div class="flex items-start">
+                            <i class="fas fa-certificate cert-icon"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-3">Core Certifications</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li>• ITIL – AXELOS</li>
+                                    <li>• CompTIA A+ – Networking Fundamentals</li>
+                                    <li>• AWS Certified Cloud Practitioner (CLF-C02)</li>
+                                    <li>• IT Support – Microsoft Learn</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4">Technical Training & Courses</h3>
-                        <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                            <li>Operating Systems – Cisco (In Progress)</li>
-                            <li>Introduction to Cybersecurity – Cisco</li>
-                            <li>IT Customer Support – Cisco</li>
-                            <li>Introduction to Networking – Eden University</li>
-                        </ul>
+
+                    <!-- Technical Training -->
+                    <div class="cert-card" data-aos="fade-left">
+                        <div class="flex items-start">
+                            <i class="fas fa-graduation-cap cert-icon"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-3">Technical Training & Courses</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li>• Operating Systems – Cisco (In Progress)</li>
+                                    <li>• Introduction to Cybersecurity – Cisco</li>
+                                    <li>• IT Customer Support – Cisco</li>
+                                    <li>• Introduction to Networking – Eden University</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card p-6 rounded-xl md:col-span-2">
-                        <h3 class="text-xl font-bold mb-4">Emerging Technologies & Tools</h3>
-                        <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                            <li>AI Agents – Beginner Level (MindLuster)</li>
-                            <li>Introduction to Modern AI</li>
-                            <li>Microsoft 365 Tools Training</li>
-                            <li>Digital Safety & Security Awareness (ZamStats Zambia / Cisco)</li>
-                        </ul>
+
+                    <!-- Emerging Technologies -->
+                    <div class="cert-card md:col-span-2" data-aos="zoom-in">
+                        <div class="flex items-start">
+                            <i class="fas fa-lightbulb cert-icon"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-3">Emerging Technologies & Tools</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li>• AI Agents – Beginner Level (MindLuster)</li>
+                                    <li>• Introduction to Modern AI</li>
+                                    <li>• Microsoft 365 Tools Training</li>
+                                    <li>• Digital Safety & Security Awareness (ZamStats Zambia / Cisco)</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -819,7 +1159,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900 section">
+    <section id="contact" class="py-20 bg-gray-900 section" data-aos="fade-up">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
             <div class="flex flex-col md:flex-row gap-12 max-w-6xl mx-auto">
@@ -829,54 +1169,63 @@
                         <p class="text-gray-300 mb-2"><strong>Phone:</strong> 📞 0976532430</p>
                         <p class="text-gray-300 mb-4"><strong>Email:</strong> 📧 muwowogranger@gmail.com</p>
                         <div class="flex gap-3 mb-6">
-                            <a href="tel:+260976532430" class="px-4 py-2 bg-blue-600 rounded-full text-white">Call</a>
-                            <a href="mailto:muwowogranger@gmail.com" class="px-4 py-2 border border-blue-400 text-blue-400 rounded-full">Email</a>
-                            <a href="Grenger_Muwowo_CV.pdf" download class="px-4 py-2 bg-gray-800 text-white rounded-full">Download CV</a>
+                            <a href="tel:+260976532430" class="px-4 py-2 rounded-full text-white transition-all" style="background: var(--accent-teal);">Call</a>
+                            <a href="mailto:muwowogranger@gmail.com" class="px-4 py-2 border-2 rounded-full transition-all" style="border-color: var(--accent-teal); color: var(--accent-teal);">Email</a>
+                            <a href="Grenger_Muwowo_CV.pdf" download class="px-4 py-2 bg-gray-800 text-white rounded-full transition-all hover:opacity-80">Download CV</a>
                         </div>
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <button onclick="window.open('https://github.com/GREGG930', '_blank')" class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mr-4 focus:outline-none">
+                                <button onclick="window.open('https://github.com/GREGG930', '_blank')" class="w-12 h-12 rounded-full flex items-center justify-center mr-4 focus:outline-none transition-all" style="background: rgba(0, 212, 170, 0.2);">
                                     <i class="fab fa-github text-white text-xl"></i>
                                 </button>
                             </div>
                             <div class="flex items-start">
-                                <button onclick="window.open('https://wa.me/260976532430', '_blank')" class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mr-4 focus:outline-none">
+                                <button onclick="window.open('https://wa.me/260976532430', '_blank')" class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mr-4 focus:outline-none hover:opacity-90 transition-all">
                                     <i class="fab fa-whatsapp text-white text-xl"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-start">
+                                <button onclick="window.open('https://linkedin.com/in/grenger-muwowo', '_blank')" class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center mr-4 focus:outline-none hover:opacity-90 transition-all">
+                                    <i class="fab fa-linkedin text-white text-xl"></i>
                                 </button>
                             </div>
                         </div>
                         <div class="mt-12">
                             <h4 class="font-bold mb-4">Available for:</h4>
                             <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm">Freelance Projects</span>
-                                <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm">Full-time Positions</span>
-                                <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm">Consulting</span>
-                                <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm">Collaborations</span>
+                                <span class="px-4 py-2 rounded-full text-sm transition-all" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">Freelance Projects</span>
+                                <span class="px-4 py-2 rounded-full text-sm transition-all" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">Full-time Positions</span>
+                                <span class="px-4 py-2 rounded-full text-sm transition-all" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">Consulting</span>
+                                <span class="px-4 py-2 rounded-full text-sm transition-all" style="background: rgba(0, 212, 170, 0.15); border: 1px solid var(--accent-teal); color: var(--accent-teal);">Collaborations</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-1/2">
                     <div class="card p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
-                        <form class="space-y-6">
+                        <h3 class="text-2xl font-bold mb-2">Send Me a Message</h3>
+                        <p class="text-gray-400 mb-6 text-sm">I'll get back to you as soon as possible.</p>
+                        <div class="success-message" id="success-message">
+                            ✓ Your message has been sent successfully!
+                        </div>
+                        <form action="https://formspree.io/f/xzzbzyej" method="POST" class="space-y-6">
                             <div>
                                 <label for="name" class="block mb-2 font-medium">Your Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 transition-all" style="focus-ring: var(--accent-teal);">
                             </div>
                             <div>
                                 <label for="email" class="block mb-2 font-medium">Email Address</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 transition-all" style="focus-ring: var(--accent-teal);">
                             </div>
                             <div>
                                 <label for="subject" class="block mb-2 font-medium">Subject</label>
-                                <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 transition-all" style="focus-ring: var(--accent-teal);">
                             </div>
                             <div>
                                 <label for="message" class="block mb-2 font-medium">Message</label>
-                                <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 transition-all" style="focus-ring: var(--accent-teal);"></textarea>
                             </div>
-                            <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-bold hover:opacity-90 transition-all transform hover:scale-[1.02]">
+                            <button type="submit" class="w-full px-6 py-4 rounded-lg font-bold hover:opacity-90 transition-all transform hover:scale-[1.02] text-white" style="background: linear-gradient(135deg, var(--accent-teal), var(--accent-teal-light));">
                                 Send Message
                             </button>
                         </form>
@@ -895,11 +1244,14 @@
                     <p class="text-gray-400 mt-2">Web Developer and IT Support Personnel</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="https://github.com/GREGG930" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-500 transition-all">
+                    <a href="https://github.com/GREGG930" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center transition-all" style="hover:background: var(--accent-teal);">
                         <i class="fab fa-github text-xl"></i>
                     </a>
                     <a href="https://wa.me/260976532430" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-500 transition-all">
                         <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/grenger-muwowo" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fab fa-linkedin text-xl"></i>
                     </a>
                 </div>
             </div>
@@ -1073,7 +1425,46 @@
         (function() {
             const typingElement = document.getElementById('live-typing');
             const highlightElement = document.getElementById('live-typing-highlight');
-            if (!typingElement || !highlightElement) return; // elements removed for static hero
+            if (!typingElement || !highlightElement) {
+                // Use the new typing animation for the hero section
+                const typeElement = document.getElementById('typing-text');
+                if (typeElement) {
+                    const roles = ["IT Support Technician", "Web Developer", "Cloud Enthusiast", "IT Assistant"];
+                    let roleIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
+
+                    function typeRole() {
+                        const currentRole = roles[roleIndex];
+                        
+                        if (isDeleting) {
+                            typeElement.textContent = currentRole.substring(0, charIndex - 1);
+                            charIndex--;
+                        } else {
+                            typeElement.textContent = currentRole.substring(0, charIndex + 1);
+                            charIndex++;
+                        }
+
+                        if (!isDeleting && charIndex === currentRole.length) {
+                            isDeleting = true;
+                            setTimeout(typeRole, 1500);
+                            return;
+                        }
+
+                        if (isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            roleIndex = (roleIndex + 1) % roles.length;
+                            setTimeout(typeRole, 500);
+                            return;
+                        }
+
+                        setTimeout(typeRole, isDeleting ? 50 : 100);
+                    }
+
+                    typeRole();
+                }
+                return;
+            }
             const fullText = "Hi, I'm ";
             const highlightText = "Grenger Muwowo";
 
@@ -1102,7 +1493,39 @@
             }
             typeText();
         })();
+
+        // Initialize AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    easing: 'ease-in-out-quad',
+                    once: false
+                });
+            }
+        });
+
+        // Form submission handling for Formspree
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form[action*="formspree"]');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    const successMsg = document.getElementById('success-message');
+                    if (successMsg) {
+                        // Show success message after Formspree processes
+                        setTimeout(() => {
+                            successMsg.classList.add('show');
+                            setTimeout(() => {
+                                successMsg.classList.remove('show');
+                                form.reset();
+                            }, 3000);
+                        }, 500);
+                    }
+                });
+            }
+        });
     </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <style>
 
     </style>
