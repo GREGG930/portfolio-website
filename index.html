@@ -7,6 +7,7 @@
     <meta property="og:title" content="Grenger Muwowo | IT Support & Web Developer – Lusaka, Zambia">
     <meta property="og:description" content="BSc Computer Science graduate offering IT support, web development, and cloud solutions in Lusaka, Zambia.">
     <meta property="og:image" content="Portrait_UHD.png">
+    <link rel="preload" href="Portrait_UHD.png" as="image">
     <meta property="og:url" content="https://gregg930.github.io/portfolio-website/">
     <meta property="og:type" content="website">
     <meta name="description" content="BSc Computer Science graduate offering IT support, web development, and cloud solutions in Lusaka, Zambia.">
@@ -409,6 +410,42 @@
                 --hero-vignette: rgba(15,23,42,0.45);
             }
             .hero-img-container { display: none; }
+            /* Mobile sidebar nav behavior */
+            nav {
+                transform: translateX(-100%);
+                display: flex !important;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+                padding: 1.25rem;
+                width: 260px;
+                max-width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: var(--card-bg, rgba(15,23,42,0.9));
+                border-right: 1px solid rgba(255,255,255,0.04);
+                z-index: 60;
+                transition: transform var(--anim-medium) ease;
+                box-shadow: 4px 0 30px rgba(2,6,23,0.6);
+            }
+            nav.mobile-open {
+                transform: translateX(0);
+            }
+            /* ensure desktop nav spacing doesn't apply on mobile when sidebar open */
+            nav.mobile-open a {
+                margin: 0;
+                padding: 0.5rem 0;
+                width: 100%;
+            }
+            /* add a simple close button area */
+            nav .close-mobile {
+                align-self: flex-end;
+                margin-bottom: 0.5rem;
+                font-size: 1.25rem;
+                cursor: pointer;
+            }
         }
 
         /* Glowing border for profile photo */
@@ -619,7 +656,8 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold gradient-text">GM</a>
-                <nav class="hidden md:flex space-x-8">
+                <nav id="main-nav" class="hidden md:flex space-x-8" aria-hidden="true">
+                    <span class="close-mobile md:hidden">&times;</span>
                     <a href="#home" class="nav-link text-white hover:text-blue-400">Home</a>
                     <a href="#about" class="nav-link text-white hover:text-blue-400">About</a>
                     <a href="#experience" class="nav-link text-white hover:text-blue-400">Experience</a>
@@ -629,12 +667,15 @@
                     <a href="#projects" class="nav-link text-white hover:text-blue-400">Projects</a>
                     <a href="#contact" class="nav-link text-white hover:text-blue-400">Contact</a>
                 </nav>
-                <button class="md:hidden text-white focus:outline-none">
+                <button id="mobile-menu-button" aria-controls="main-nav" aria-expanded="false" class="md:hidden text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
     </header>
+
+    <!-- Preload hero image for faster rendering on slow connections -->
+    <img src="Portrait_UHD.png" alt="" aria-hidden="true" style="display:none;" fetchpriority="high" decoding="async">
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center pt-20 section">
@@ -672,7 +713,7 @@
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center" data-aos="zoom-in">
                     <div class="w-64 h-64 rounded-full overflow-hidden border-4 flex items-center justify-center" style="border-color: var(--accent-teal); box-shadow: 0 0 30px rgba(0, 212, 170, 0.3);">
                         <!-- About Section image -->
-                        <img src="Portrait_UHD.png" alt="Grenger Muwowo" class="w-full h-full object-cover">
+                        <img src="Portrait_UHD.png" alt="Grenger Muwowo" class="w-full h-full object-cover" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12 flex flex-col justify-center">
@@ -1039,7 +1080,7 @@
                         </div>
                         <h3 class="text-xl font-bold">School Website</h3>
                     </div>
-                    <img src="Portrait_UHD.png" alt="School Website" class="rounded-lg mb-4">
+                    <img src="Portrait_UHD.png" alt="School Website" class="rounded-lg mb-4" loading="lazy" decoding="async">
                     <p class="text-gray-300 mb-3">Modern, responsive school website with a clean UI.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Outdated school website with poor mobile support.<br>
@@ -1342,22 +1383,27 @@
             });
         });
 
-        // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.md\\:hidden');
-        const mobileMenu = document.querySelector('nav');
-        
+        // Mobile sidebar toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('main-nav');
+
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-            mobileMenu.classList.toggle('flex-col');
-            mobileMenu.classList.toggle('absolute');
-            mobileMenu.classList.toggle('top-16');
-            mobileMenu.classList.toggle('left-0');
-            mobileMenu.classList.toggle('right-0');
-            mobileMenu.classList.toggle('bg-gray-900');
-            mobileMenu.classList.toggle('p-4');
-            mobileMenu.classList.toggle('space-y-4');
-            mobileMenu.classList.toggle('space-x-8');
+            mobileMenu.classList.toggle('mobile-open');
+            // set aria-expanded for accessibility
+            const expanded = mobileMenu.classList.contains('mobile-open');
+            mobileMenuButton.setAttribute('aria-expanded', expanded);
+            mobileMenu.setAttribute('aria-hidden', !expanded);
+        });
+
+        // Add a close handler when a nav link is clicked (mobile)
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' && window.innerWidth < 768) {
+                mobileMenu.classList.remove('mobile-open');
+            }
+            // close button click
+            if (e.target.classList.contains('close-mobile')) {
+                mobileMenu.classList.remove('mobile-open');
+            }
         });
 
         // Animate skill bars on scroll
