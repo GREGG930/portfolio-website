@@ -6,7 +6,7 @@
     <title>Grenger Muwowo | IT Support & Web Developer – Lusaka, Zambia</title>
     <meta property="og:title" content="Grenger Muwowo | IT Support & Web Developer – Lusaka, Zambia">
     <meta property="og:description" content="BSc Computer Science graduate offering IT support, web development, and cloud solutions in Lusaka, Zambia.">
-    <meta property="og:image" content="IMG_20230611_120525_201.jpg">
+    <meta property="og:image" content="Portrait_UHD.png">
     <meta property="og:url" content="https://gregg930.github.io/portfolio-website/">
     <meta property="og:type" content="website">
     <meta name="description" content="BSc Computer Science graduate offering IT support, web development, and cloud solutions in Lusaka, Zambia.">
@@ -29,6 +29,16 @@
             --accent-teal-dark: #00A88A;
             --accent-teal-light: #4DEDCA;
             --dark-navy: #0f172a;
+            --anim-fast: 0.12s;
+            --anim-medium: 0.2s;
+            --anim-slow: 0.6s;
+            /* hero overlay colors (can be updated by JS for light/dark) */
+            --hero-overlay-top: rgba(0, 212, 170, 0.06);
+            --hero-overlay-mid: rgba(0, 212, 170, 0.03);
+            --hero-vignette: rgba(15,23,42,0.6);
+            --hero-text-color: #ffffff;
+            --hero-heading-color: #ffffff;
+            --hero-body-color: #ffffff;
         }
 
         .gradient-text {
@@ -42,7 +52,7 @@
             background: var(--card-bg, rgba(15,23,42,0.7));
             border: 1px solid var(--card-border, rgba(255,255,255,0.1));
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all var(--anim-medium) ease;
         }
         
         .card:hover {
@@ -62,7 +72,7 @@
             bottom: -2px;
             left: 0;
             background: var(--accent-teal);
-            transition: width 0.3s ease;
+            transition: width var(--anim-medium) ease;
         }
         
         .nav-link:hover::after {
@@ -80,7 +90,7 @@
             height: 100%;
             background: linear-gradient(90deg, var(--accent-teal), var(--accent-teal-light));
             border-radius: 4px;
-            transition: width 1.5s ease;
+            transition: width 1s ease;
         }
         
         .floating {
@@ -111,7 +121,7 @@
         .section {
             opacity: 0;
             transform: translateY(50px);
-            transition: all 0.8s ease;
+            transition: all var(--anim-slow) ease;
             background: var(--section-bg, transparent);
         }
         
@@ -182,11 +192,11 @@
             background: var(--input-bg, #1e293b);
             border: 1px solid var(--input-border, #334155);
             color: inherit;
-            transition: background 0.3s, border 0.3s;
+            transition: background var(--anim-medium), border var(--anim-medium);
         }
         #greeting {
             background-color: var(--greeting-bg, #1e40af);
-            transition: background-color 0.3s;
+            transition: background-color var(--anim-medium);
         }
 
         /* Responsive adjustments */
@@ -304,6 +314,7 @@
         .cert-badge:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(59,130,246,0.12);
+            transition: transform var(--anim-fast) ease, box-shadow var(--anim-fast) ease;
         }
         .cert-badge img {
             width: 28px;
@@ -341,6 +352,17 @@
         }
 
         /* Hero section gradient background */
+        #home {
+            position: relative;
+            /* Use the hero image as a full-bleed background */
+            background-image: url('Portrait_UHD.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 70vh;
+        }
+
         #home::before {
             content: '';
             position: absolute;
@@ -348,19 +370,45 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 212, 170, 0.05) 0%, transparent 50%);
+            /* soft decorative radial highlights + subtle vignette - uses CSS variables so JS can tweak for light/dark */
+            background: radial-gradient(circle at 20% 50%, var(--hero-overlay-top) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, var(--hero-overlay-mid) 0%, transparent 40%),
+                        linear-gradient(180deg, var(--hero-vignette) 0%, rgba(15,23,42,0.25) 60%, rgba(15,23,42,0.75) 100%);
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
         }
 
-        #home {
-            position: relative;
-        }
-
+        /* ensure content sits above the background and overlay */
         #home > .container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            color: var(--hero-text-color);
+        }
+
+        /* Hero-specific text color to ensure legibility over image */
+        #home h1, #home .typing-word {
+            color: var(--hero-heading-color);
+        }
+        #home p, #home .text-lg, #home .card, #home a, #home .typing-container {
+            color: var(--hero-body-color);
+        }
+
+        /* Mobile / tablet adjustments for hero */
+        @media (max-width: 767px) {
+            #home {
+                background-attachment: scroll; /* fixed hurts performance on mobile */
+                background-position: center top;
+                min-height: 60vh;
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+            #home::before {
+                /* reduce overlay intensity on small screens */
+                --hero-overlay-top: rgba(0, 212, 170, 0.04);
+                --hero-overlay-mid: rgba(0, 212, 170, 0.02);
+                --hero-vignette: rgba(15,23,42,0.45);
+            }
+            .hero-img-container { display: none; }
         }
 
         /* Glowing border for profile photo */
@@ -546,7 +594,7 @@
 
         .success-message.show {
             display: block;
-            animation: slideDown 0.3s ease;
+            animation: slideDown var(--anim-medium) ease;
         }
 
         @keyframes slideDown {
@@ -606,15 +654,11 @@
                     <a href="#about" class="px-6 py-3 border-2 rounded-full font-medium hover:opacity-90 transition-all transform hover:scale-105" style="border-color: var(--accent-teal); color: var(--accent-teal);">Learn More</a>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative hero-img-container" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full opacity-20 blur-xl" style="background: linear-gradient(135deg, var(--accent-teal), var(--accent-teal-light));"></div>
-                    <div class="relative w-full h-full flex items-center justify-center">
-                        <div class="w-full h-full rounded-full overflow-hidden border-4 floating" style="border-color: var(--accent-teal);">
-                            <!-- Hero Section image -->
-                            <img src="IMG_20230611_120525_201.jpg" alt="Grenger Muwowo" class="w-full h-full object-cover">
-                        </div>
-                    </div>
+            <div class="md:w-1/2 hidden md:flex items-center justify-center">
+                <div class="w-full max-w-md card p-8 rounded-xl text-center" data-aos="fade-left" data-aos-duration="800">
+                    <h3 class="text-xl font-bold mb-3">Professional IT Support & Web Development</h3>
+                    <p class="text-gray-300 mb-6">Reliable technical solutions for businesses and teams — tailored, secure, and scalable.</p>
+                    <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full font-medium hover:opacity-90 transition-all">Get In Touch</a>
                 </div>
             </div>
         </div>
@@ -628,7 +672,7 @@
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center" data-aos="zoom-in">
                     <div class="w-64 h-64 rounded-full overflow-hidden border-4 flex items-center justify-center" style="border-color: var(--accent-teal); box-shadow: 0 0 30px rgba(0, 212, 170, 0.3);">
                         <!-- About Section image -->
-                        <img src="IMG_20230611_120525_201.jpg" alt="Grenger Muwowo" class="w-full h-full object-cover">
+                        <img src="Portrait_UHD.png" alt="Grenger Muwowo" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12 flex flex-col justify-center">
@@ -995,7 +1039,7 @@
                         </div>
                         <h3 class="text-xl font-bold">School Website</h3>
                     </div>
-                    <img src="IMG_20230611_120525_201.jpg" alt="School Website" class="rounded-lg mb-4">
+                    <img src="Portrait_UHD.png" alt="School Website" class="rounded-lg mb-4">
                     <p class="text-gray-300 mb-3">Modern, responsive school website with a clean UI.</p>
                     <div class="text-sm text-gray-300 mb-3">
                         <strong>Problem:</strong> Outdated school website with poor mobile support.<br>
@@ -1384,6 +1428,12 @@
                 document.documentElement.style.setProperty('--input-bg', '#1e293b');
                 document.documentElement.style.setProperty('--input-border', '#334155');
                 document.documentElement.style.setProperty('--greeting-bg', '#1e40af');
+                // hero overlay for dark
+                document.documentElement.style.setProperty('--hero-overlay-top', 'rgba(0, 212, 170, 0.06)');
+                document.documentElement.style.setProperty('--hero-overlay-mid', 'rgba(0, 212, 170, 0.03)');
+                document.documentElement.style.setProperty('--hero-vignette', 'rgba(15,23,42,0.6)');
+                document.documentElement.style.setProperty('--hero-heading-color', '#ffffff');
+                document.documentElement.style.setProperty('--hero-body-color', '#cbd5e1');
                 candleEmoji.textContent = '🕯️';
                 toggleLabel.textContent = 'Dark';
                 candleEmoji.classList.remove('animate-blowout');
@@ -1398,6 +1448,13 @@
                 document.documentElement.style.setProperty('--input-bg', '#f8fafc');
                 document.documentElement.style.setProperty('--input-border', '#cbd5e1');
                 document.documentElement.style.setProperty('--greeting-bg', '#fbbf24');
+                // hero overlay for light mode - use a subtle dark tint so text remains readable over bright images
+                document.documentElement.style.setProperty('--hero-overlay-top', 'rgba(0, 0, 0, 0.32)');
+                document.documentElement.style.setProperty('--hero-overlay-mid', 'rgba(0, 0, 0, 0.16)');
+                document.documentElement.style.setProperty('--hero-vignette', 'rgba(0, 0, 0, 0.45)');
+                // Light mode: blue headings, black body text
+                document.documentElement.style.setProperty('--hero-heading-color', '#0b63d6');
+                document.documentElement.style.setProperty('--hero-body-color', '#000000');
                 candleEmoji.textContent = '💡';
                 toggleLabel.textContent = 'Light';
                 candleEmoji.classList.add('animate-blowout');
@@ -1498,7 +1555,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof AOS !== 'undefined') {
                 AOS.init({
-                    duration: 1000,
+                    duration: 700,
                     easing: 'ease-in-out-quad',
                     once: false
                 });
