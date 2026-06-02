@@ -1388,21 +1388,20 @@
         const mobileMenu = document.getElementById('main-nav');
 
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('mobile-open');
+            const isOpen = mobileMenu.classList.toggle('mobile-open');
+            mobileMenu.classList.toggle('hidden', !isOpen);
             // set aria-expanded for accessibility
-            const expanded = mobileMenu.classList.contains('mobile-open');
-            mobileMenuButton.setAttribute('aria-expanded', expanded);
-            mobileMenu.setAttribute('aria-hidden', !expanded);
+            mobileMenuButton.setAttribute('aria-expanded', isOpen);
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
         });
 
         // Add a close handler when a nav link is clicked (mobile)
         mobileMenu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A' && window.innerWidth < 768) {
+            if ((e.target.tagName === 'A' && window.innerWidth < 768) || e.target.classList.contains('close-mobile')) {
                 mobileMenu.classList.remove('mobile-open');
-            }
-            // close button click
-            if (e.target.classList.contains('close-mobile')) {
-                mobileMenu.classList.remove('mobile-open');
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', false);
+                mobileMenu.setAttribute('aria-hidden', true);
             }
         });
 
