@@ -198,6 +198,43 @@
         #greeting {
             background-color: var(--greeting-bg, #1e40af);
             transition: background-color var(--anim-medium);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #greeting {
+            background-color: var(--greeting-bg, #1e40af);
+            transition: background-color var(--anim-medium);
+            opacity: 0;
+            pointer-events: none;
+            position: fixed;
+            top: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            max-width: min(90vw, 38rem);
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+        .greeting-visible {
+            animation: greeting-animate 7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes greeting-animate {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -30px) scale(0.96);
+            }
+            12% {
+                opacity: 1;
+                transform: translate(-50%, 0) scale(1);
+            }
+            84% {
+                opacity: 1;
+                transform: translate(-50%, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -20px) scale(0.98);
+            }
         }
 
         /* Responsive adjustments */
@@ -355,13 +392,21 @@
         /* Hero section gradient background */
         #home {
             position: relative;
-            /* Use the hero image as a full-bleed background */
-            background-image: url('Portrait_UHD.png');
+            background-color: #0f172a;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             min-height: 70vh;
+        }
+
+        #home.hero-bg-animation {
+            animation: hero-bg-pan 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes hero-bg-pan {
+            0% { background-position: center 35%; }
+            100% { background-position: center 65%; }
         }
 
         #home::before {
@@ -377,6 +422,12 @@
                         linear-gradient(180deg, var(--hero-vignette) 0%, rgba(15,23,42,0.25) 60%, rgba(15,23,42,0.75) 100%);
             pointer-events: none;
             z-index: 1;
+            animation: hero-overlay-glow 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes hero-overlay-glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
         }
 
         /* ensure content sits above the background and overlay */
@@ -674,10 +725,7 @@
         </div>
     </header>
 
-    <!-- Preload hero image for faster rendering on slow connections -->
-    <img src="Portrait_UHD.png" alt="" aria-hidden="true" style="display:none;" fetchpriority="high" decoding="async">
-
-    <!-- Hero Section -->
+    <!-- Hero Section (background image loads only on good network conditions) -->
     <section id="home" class="min-h-screen flex items-center pt-20 section">
         <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between">
             <div class="w-full md:w-1/2 mb-12 md:mb-0 flex flex-col justify-center text-left">
@@ -1612,7 +1660,7 @@
         }
         const greetingDiv = document.createElement('div');
         greetingDiv.id = 'greeting';
-        greetingDiv.className = 'fixed top-8 left-8 z-50 bg-blue-900 bg-opacity-80 text-white px-6 py-2 rounded-full shadow-lg text-lg font-semibold animate-fade-in-up';
+        greetingDiv.className = 'fixed top-24 left-1/2 z-50 transform -translate-x-1/2 bg-blue-900 bg-opacity-90 text-white px-6 py-3 rounded-full shadow-2xl text-lg font-semibold';
         greetingDiv.style.display = 'none';
         document.body.appendChild(greetingDiv);
         let greetingTimeout;
@@ -1620,10 +1668,13 @@
         function showGreeting() {
             greetingDiv.textContent = getGreeting();
             greetingDiv.style.display = 'block';
+            greetingDiv.classList.remove('greeting-visible');
+            void greetingDiv.offsetWidth;
+            greetingDiv.classList.add('greeting-visible');
             clearTimeout(greetingTimeout);
             greetingTimeout = setTimeout(() => {
                 greetingDiv.style.display = 'none';
-            }, 2000);
+            }, 7000);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1633,6 +1684,15 @@
                     showGreeting();
                     sessionStorage.setItem('greetingShown', 'true');
                 }
+            }
+
+            const heroSection = document.getElementById('home');
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            const isSlowNetwork = connection && (connection.saveData || /2g|slow-2g/.test(connection.effectiveType || ''));
+
+            if (heroSection && !isSlowNetwork) {
+                heroSection.style.backgroundImage = "url('Portrait_UHD.png')";
+                heroSection.classList.add('hero-bg-animation');
             }
         });
 
